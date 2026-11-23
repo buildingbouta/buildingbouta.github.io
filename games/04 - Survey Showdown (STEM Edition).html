@@ -442,15 +442,13 @@ document.getElementById("subtitle").textContent = MODE === "display"
 
 // ---------- Earth Science badge (original artwork, embedded so the file stays standalone) ----------
 const EARTH_SCIENCE_LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <g transform="rotate(-18 100 100)">
-    <ellipse cx="100" cy="100" rx="92" ry="36" fill="none" stroke="#e0aa3a" stroke-width="3"/>
-    <circle cx="192" cy="100" r="6" fill="#e0aa3a"/>
-  </g>
-  <circle cx="100" cy="100" r="56" fill="none" stroke="#7ecbe8" stroke-width="4"/>
-  <ellipse cx="100" cy="100" rx="23" ry="56" fill="none" stroke="#7ecbe8" stroke-width="2.4" opacity="0.8"/>
-  <line x1="44" y1="100" x2="156" y2="100" stroke="#7ecbe8" stroke-width="2.4" opacity="0.8"/>
-  <path d="M48 80 Q100 64 152 80" fill="none" stroke="#7ecbe8" stroke-width="1.8" opacity="0.6"/>
-  <path d="M48 120 Q100 136 152 120" fill="none" stroke="#7ecbe8" stroke-width="1.8" opacity="0.6"/>
+  <path d="M100 14 L174.5 57 L174.5 143 L100 186 L25.5 143 L25.5 57 Z" fill="none" stroke="#7ecbe8" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="68" cy="62" r="9" fill="none" stroke="#e0aa3a" stroke-width="3"/>
+  <path d="M42 126 L80 78 L97 99 L120 60 L158 126" fill="none" stroke="#7ecbe8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M109 79 L116 88 L122 81 L129 89" fill="none" stroke="#7ecbe8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <path d="M44 142 Q72 133 100 142 T156 142" fill="none" stroke="#e0aa3a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M62 157 Q81 150 100 157 T138 157" fill="none" stroke="#7ecbe8" stroke-width="2.4" stroke-linecap="round" opacity="0.8"/>
+  <path d="M80 170 Q90 165 100 170 T120 170" fill="none" stroke="#7ecbe8" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
 </svg>`;
 const LOGO_DATA_URI = "data:image/svg+xml;base64," + btoa(EARTH_SCIENCE_LOGO_SVG);
 document.getElementById("logoImg").src = LOGO_DATA_URI;
