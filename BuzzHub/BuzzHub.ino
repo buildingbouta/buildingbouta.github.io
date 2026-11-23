@@ -1,6 +1,9 @@
 /*
   Buzz Hub firmware for the Seeed XIAO ESP32S3.
 
+  Copyright (c) 2026 David Bouthot. Released under the MIT License.
+  See the LICENSE file in this folder.
+
   The board makes its own Wi-Fi network, serves the phone buzzer page and the
   host remote page, and passes messages between the phones and the game running
   on the laptop. The game can link over Wi-Fi (WebSocket) or over the USB cable

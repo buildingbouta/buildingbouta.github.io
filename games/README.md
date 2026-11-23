@@ -141,3 +141,9 @@ In the **Question bank** section near the bottom of the Host Control screen:
 These files are plain HTML, CSS, and JavaScript. No build process and no dependencies to install. Open one in any text editor to see how it works. The question banks, topic colors, and default icons are near the top of each file's `<script>` section if you want to swap in a new subject area entirely.
 
 If you'd like help adapting these for a different topic, audience, or event format, reach out. Contact info is at the top of this document.
+
+## License
+
+Copyright (c) 2026 David Bouthot. The games, the question templates and this guide are released under the MIT License; see `LICENSE` in this folder. You can use, change and share them, as long as the copyright notice stays with them.
+
+Each game file also includes SheetJS Community Edition 0.18.5, which reads and writes the question spreadsheets. SheetJS is (C) 2013-present SheetJS and stays under the Apache License 2.0; see `THIRD-PARTY-LICENSES.txt`.
