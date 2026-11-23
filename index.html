@@ -66,6 +66,13 @@
   .item p{color:var(--muted);font-size:.97rem;margin:0}
   .item a{font-weight:700;color:var(--c)}
   .mission{background:var(--card);border-radius:22px;padding:40px 44px;box-shadow:6px 8px 0 #E6E2DA}
+  .feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:center;background:var(--card);border-radius:22px;padding:26px;margin-top:24px;border-left:6px solid var(--c)}
+  .feature .shots{display:grid;gap:12px}
+  .feature img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid #E6E2DA}
+  .feature h3{font-size:1.35rem;margin-bottom:8px}
+  .feature p{color:var(--muted);margin-bottom:12px}
+  .feature .btn{color:var(--c);margin:6px 0 0;text-decoration:none}
+  .feature .btn:hover{background:var(--c);color:#fff;border-color:var(--c)}
   .mission h2{margin-bottom:14px}
   .mission p{margin-bottom:12px;max-width:820px}
   .mission p:last-child{margin-bottom:0}
@@ -173,8 +180,29 @@
     <span class="tag">Concept build, in testing</span>
     <h2>Own Your Space</h2>
     <p>Capture a space in 360 and 180 with a phone and a 3D-printed rig, stitch it yourself, and keep your own copy of every file. It's a low-cost way to document a place, and it sits alongside the professional scanning and GIS tools I use in my other work.</p>
+    <div class="feature">
+      <div class="shots">
+        <img src="images/rig360-thermal.jpg" width="1200" height="615" loading="lazy" alt="Thermal 360 view of a building atrium with temperature readings pinned on the windows">
+        <img src="images/rig360-rig.jpg" width="1200" height="491" loading="lazy" alt="Renders of the 3D-printed Rig360 mount with its thermal camera top and its phone top">
+      </div>
+      <div>
+        <h3>Rig360 and IR360</h3>
+        <p>A 3D-printed, click-stop camera mount and a stitching app that turn a pocket thermal camera into a thermal 360. Each capture spot takes 36 stills across three tilt rings, and the stitched view keeps a temperature reading for every pixel.</p>
+        <p>One core, two swappable tops: a thermal top for a FLIR ONE Edge Pro and a phone top for regular 360s. Built during my Environmental Health &amp; Safety internship at Montclair State. Now on version 1.1, with version 2 in the works.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="shots">
+        <a href="hawaii/"><img src="images/hawaii-viewer.jpg" width="1200" height="713" loading="lazy" alt="The Hawaiian Field Sites viewer showing a 360 view of a rocky beach with a compass strip and a map of the sites"></a>
+      </div>
+      <div>
+        <h3>Hawaiian Field Sites</h3>
+        <p>A 360 field viewer built from ordinary phone photos on Maui and the Big Island in October 2026, with no 360 camera. Stand at any of 26 sites and look around.</p>
+        <p>Each site carries its location, compass direction, rock notes and sources. There is also a 3D map of both islands and a headset VR mode.</p>
+        <a class="btn" href="hawaii/">Open the viewer &rsaquo;</a>
+      </div>
+    </div>
     <div class="items">
-      <div class="item"><h3>Phone Rig</h3><p>Printable mount design. Files coming after beta testing.</p></div>
       <div class="item"><h3>Capture and Stitch Guide</h3><p>Step-by-step guide to shooting and stitching your own walkthrough. Coming soon.</p></div>
     </div>
     <a class="back" href="#">↑ Back to top</a>
@@ -185,7 +213,7 @@
     <h2>On the Workbench</h2>
     <p>Half-built ideas, experiments, and things that might work. Check back as they come off the bench.</p>
     <div class="items">
-      <div class="item"><h3>Coming soon</h3><p>The first project is still on the bench. Check back soon.</p></div>
+      <div class="item"><h3>Geo Rides</h3><p>A lean-to-steer geology ride. You stand on a converted Wii Balance Board and lean to steer through seven rides on a laptop. The game is built and tested, and the board conversion is on the bench now.</p></div>
     </div>
     <a class="back" href="#">↑ Back to top</a>
   </section>
