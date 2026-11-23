@@ -1,0 +1,17 @@
+BUZZ HUB UPDATE: lets the player who buzzes in pick A-D on their phone
+(Only the board needs this. Do it once.)
+
+1. Download this BuzzHub folder (it must be named BuzzHub).
+2. Plug the Buzz Hub into the laptop.
+3. Double-click BuzzHub.ino inside that folder. Arduino IDE opens.
+4. Check the Tools menu is the same as last time:
+     Board: XIAO_ESP32S3
+     USB Mode: USB-OTG (TinyUSB)
+     USB CDC On Boot: Enabled
+     Port: the board's port (it may have changed, pick the one that appears)
+5. Click the Upload arrow (right arrow, top left). Wait for "Done uploading".
+6. Wi-Fi name, password and PIN come from config.h. Set your own there before uploading.
+7. Phones: reload the buzzer page once (192.168.4.1) so they get the new screen.
+
+If you want to skip this: the game still works with the old board.
+Only the new A-D answer buttons on phones need the update.
