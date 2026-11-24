@@ -24,7 +24,6 @@
     --orange:#D6783C; --blue:#3C78A0; --green:#6E8C50; --mint:#E1E8DC;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
   body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
   a{color:inherit}
   .wrap{max-width:1150px;margin:0 auto;padding:0 24px}
@@ -90,17 +89,79 @@
   .snap figcaption{font-style:italic;color:var(--muted);font-size:.92rem;padding-top:8px}
   .snap:hover{transform:rotate(0deg) scale(1.05);position:relative;z-index:2}
   @media (prefers-reduced-motion:reduce){.snap,.card,.photo img{transition:none}}
+
+  /* Tabs: one section on screen at a time */
+  .tabs{position:sticky;top:0;z-index:20;background:rgba(247,244,238,.95);backdrop-filter:blur(8px);border-bottom:1px solid #E6E2DA}
+  .tabs .in{max-width:1150px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:20px}
+  .brand{font-weight:800;letter-spacing:.12em;text-decoration:none;margin-right:auto}
+  .tablist{display:flex;gap:6px}
+  .tablist a{text-decoration:none;font-weight:700;font-size:.95rem;padding:7px 16px;border-radius:999px;color:var(--muted)}
+  .tablist a:hover{color:var(--ink)}
+  .tablist a.on{color:#fff;background:var(--c,var(--ink))}
+  .tablist .ico,.tablist .short{display:none}
+  .js .view{display:none}
+  .js .view.on{display:block}
+  .view section{border-top:0;padding:44px 0 50px}
+  .view[data-view="about"]{padding-top:44px}
+  .view[data-view="about"] .me{padding-bottom:50px}
+  .view[data-view="home"] header{padding:26px 0 14px}
+  .view[data-view="home"] h1{font-size:clamp(2.2rem,5vw,3.3rem)}
+  .view[data-view="home"] .story{margin-top:10px}
+  .view[data-view="home"] .pill{margin-top:16px;padding:9px 24px}
+  .view[data-view="home"] .cards{padding:14px 0 30px;gap:28px}
+  .view[data-view="home"] .photo{height:150px}
+  .view[data-view="home"] .body{padding:16px 22px 20px}
+  .view[data-view="home"] .btn{margin-top:14px;padding:8px 24px}
+  footer{padding:30px 0 50px}
+  @media (max-width:720px){
+    body{padding-bottom:76px}
+    .tabs{position:fixed;top:auto;bottom:0;left:0;right:0;border-bottom:0;border-top:1px solid #E6E2DA}
+    .tabs .in{padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+    .brand{display:none}
+    .tablist{width:100%;gap:2px}
+    .tablist a{flex:1;display:flex;flex-direction:column;align-items:center;font-size:.72rem;padding:5px 2px;border-radius:12px}
+    .tablist .ico{display:block;font-size:1.25rem;line-height:1.25}
+    .tablist .long{display:none}
+    .tablist .short{display:inline}
+    .view[data-view="home"] header{padding:26px 0 8px}
+    .story{font-size:1rem;margin-top:10px}
+    .pill{margin-top:16px;padding:8px 20px}
+    .view[data-view="home"] .cards{grid-template-columns:1fr;gap:14px;padding:18px 0 24px}
+    .view[data-view="home"] .card{flex-direction:row;border-top:0;border-left:8px solid var(--c);border-radius:16px}
+    .view[data-view="home"] .photo{width:116px;height:auto;min-height:104px;flex:none}
+    .view[data-view="home"] .photo img{position:absolute;inset:0}
+    .view[data-view="home"] .body{padding:12px 14px;text-align:left;justify-content:center}
+    .view[data-view="home"] .body h2{font-size:1.15rem;margin-bottom:2px}
+    .view[data-view="home"] .body p{font-size:.92rem;line-height:1.4}
+    .view[data-view="home"] .caption,.view[data-view="home"] .btn{display:none}
+    .view section{padding:26px 0 30px}
+    .view[data-view="about"]{padding-top:26px}
+    .mission{padding:24px 22px}
+    .feature{padding:18px}
+  }
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-<header class="wrap">
+<nav class="tabs" aria-label="Sections"><div class="in">
+  <a class="brand" href="#home">BUILDING BOUTA</a>
+  <div class="tablist">
+    <a href="#home" data-tab="home"><span class="ico" aria-hidden="true">🏠</span><span class="long">Home</span><span class="short">Home</span></a>
+    <a href="#learn" data-tab="learn" class="orange"><span class="ico" aria-hidden="true">🎓</span><span class="long">Learn by Building</span><span class="short">Learn</span></a>
+    <a href="#own" data-tab="own" class="blue"><span class="ico" aria-hidden="true">📷</span><span class="long">Own Your Space</span><span class="short">Space</span></a>
+    <a href="#workbench" data-tab="workbench" class="green"><span class="ico" aria-hidden="true">🛠️</span><span class="long">On the Workbench</span><span class="short">Bench</span></a>
+    <a href="#about" data-tab="about"><span class="ico" aria-hidden="true">👋</span><span class="long">About</span><span class="short">About</span></a>
+  </div>
+</div></nav>
+
+<main class="wrap">
+  <div class="view" data-view="home">
+<header>
   <h1>BUILDING BOUTA</h1>
   <p class="story">I'm David Bouthot. I make complex systems work, whether that's a steel frame, a campus GIS model or a team of people.</p>
   <span class="pill">Build it. Test it. Share it.</span>
 </header>
-
-<main class="wrap">
   <div class="cards">
     <a class="card orange" href="#learn">
       <div class="photo"><div class="fallback">🎓</div><img src="images/teaching.jpg" alt="David next to a poster display" onerror="this.remove()"></div>
@@ -130,7 +191,68 @@
       </div>
     </a>
   </div>
+  </div>
 
+  <div class="view" data-view="learn">
+  <section class="orange">
+    <span class="tag">STEM</span>
+    <h2>Learn by Building</h2>
+    <p>Tools that make life simpler for educators of any level, free to use, free to adapt.</p>
+    <div class="items">
+      <div class="item"><h3>Quiz Game Shows</h3><p>Four classroom game shows in four themed editions. They run in a browser, open source, no accounts needed. <a href="games/">Play the games ›</a></p></div>
+      <div class="item"><h3>Buzz Hub</h3><p>A small Wi-Fi board that turns players' phones into buzzers for the quiz games. Firmware and setup steps. <a href="https://github.com/buildingbouta/buildingbouta.github.io/tree/main/BuzzHub">Get the firmware ›</a></p></div>
+    </div>
+    <a class="back" href="#home">← Back to home</a>
+  </section>
+  </div>
+
+  <div class="view" data-view="own">
+  <section class="blue">
+    <span class="tag">Concept build, in testing</span>
+    <h2>Own Your Space</h2>
+    <p>Capture a space in 360 and 180 with a phone and a 3D-printed rig, stitch it yourself, and keep your own copy of every file. It's a low-cost way to document a place, and it sits alongside the professional scanning and GIS tools I use in my other work.</p>
+    <div class="feature">
+      <div class="shots">
+        <img src="images/rig360-thermal.jpg" width="1200" height="615" loading="lazy" alt="Thermal 360 view of a building atrium with temperature readings pinned on the windows">
+        <img src="images/rig360-rig.jpg" width="1200" height="491" loading="lazy" alt="Renders of the 3D-printed Rig360 mount with its thermal camera top and its phone top">
+      </div>
+      <div>
+        <h3>Rig360 and IR360</h3>
+        <p>A 3D-printed, click-stop camera mount and a stitching app that turn a pocket thermal camera into a thermal 360. Each capture spot takes 36 stills across three tilt rings, and the stitched view keeps a temperature reading for every pixel.</p>
+        <p>One core, two swappable tops: a thermal top for a FLIR ONE Edge Pro and a phone top for regular 360s. Built during my Environmental Health &amp; Safety internship at Montclair State. Now on version 1.1, with version 2 in the works.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="shots">
+        <a href="hawaii/"><img src="images/hawaii-viewer.jpg" width="1200" height="713" loading="lazy" alt="The Hawaiian Field Sites viewer showing a 360 view of a rocky beach with a compass strip and a map of the sites"></a>
+      </div>
+      <div>
+        <h3>Hawaiian Field Sites</h3>
+        <p>A 360 field viewer built from ordinary phone photos on Maui and the Big Island in October 2026, with no 360 camera. Stand at any of 26 sites and look around.</p>
+        <p>Each site carries its location, compass direction, rock notes and sources. There is also a 3D map of both islands and a headset VR mode.</p>
+        <a class="btn" href="hawaii/">Open the viewer &rsaquo;</a>
+      </div>
+    </div>
+    <div class="items">
+      <div class="item"><h3>Capture and Stitch Guide</h3><p>Step-by-step guide to shooting and stitching your own walkthrough. Coming soon.</p></div>
+    </div>
+    <a class="back" href="#home">← Back to home</a>
+  </section>
+  </div>
+
+  <div class="view" data-view="workbench">
+  <section class="green">
+    <span class="tag">Ideas in progress</span>
+    <h2>On the Workbench</h2>
+    <p>Half-built ideas, experiments, and things that might work. Check back as they come off the bench.</p>
+    <div class="items">
+      <div class="item"><h3>Geo Rides</h3><p>A lean-to-steer geology ride. You stand on a converted Wii Balance Board and lean to steer through seven rides on a laptop. The game is built and tested, and the board conversion is on the bench now.</p></div>
+    </div>
+    <a class="back" href="#home">← Back to home</a>
+  </section>
+  </div>
+
+  <div class="view" data-view="about">
   <!-- THIS IS ME: captions are drafts, change them to whatever you like -->
   <div class="me">
     <h2>Yes, that's me</h2>
@@ -163,61 +285,23 @@
     <p>I use whatever fits the job, whether that's a welder, a GIS platform or AI. I set the constraints, check every result against the real world, and own what goes out under my name.</p>
     <p><strong>Build it. Test it. Share it.</strong></p>
   </div>
-
-  <section id="learn" class="orange">
-    <span class="tag">STEM</span>
-    <h2>Learn by Building</h2>
-    <p>Tools that make life simpler for educators of any level, free to use, free to adapt.</p>
-    <div class="items">
-      <div class="item"><h3>Quiz Game Shows</h3><p>Four classroom game shows in four themed editions. They run in a browser, open source, no accounts needed. <a href="games/">Play the games ›</a></p></div>
-      <div class="item"><h3>Buzz Hub</h3><p>A small Wi-Fi board that turns players' phones into buzzers for the quiz games. Firmware and setup steps. <a href="https://github.com/buildingbouta/buildingbouta.github.io/tree/main/BuzzHub">Get the firmware ›</a></p></div>
-    </div>
-    <a class="back" href="#">↑ Back to top</a>
-  </section>
-
-  <section id="own" class="blue">
-    <span class="tag">Concept build, in testing</span>
-    <h2>Own Your Space</h2>
-    <p>Capture a space in 360 and 180 with a phone and a 3D-printed rig, stitch it yourself, and keep your own copy of every file. It's a low-cost way to document a place, and it sits alongside the professional scanning and GIS tools I use in my other work.</p>
-    <div class="feature">
-      <div class="shots">
-        <img src="images/rig360-thermal.jpg" width="1200" height="615" loading="lazy" alt="Thermal 360 view of a building atrium with temperature readings pinned on the windows">
-        <img src="images/rig360-rig.jpg" width="1200" height="491" loading="lazy" alt="Renders of the 3D-printed Rig360 mount with its thermal camera top and its phone top">
-      </div>
-      <div>
-        <h3>Rig360 and IR360</h3>
-        <p>A 3D-printed, click-stop camera mount and a stitching app that turn a pocket thermal camera into a thermal 360. Each capture spot takes 36 stills across three tilt rings, and the stitched view keeps a temperature reading for every pixel.</p>
-        <p>One core, two swappable tops: a thermal top for a FLIR ONE Edge Pro and a phone top for regular 360s. Built during my Environmental Health &amp; Safety internship at Montclair State. Now on version 1.1, with version 2 in the works.</p>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="shots">
-        <a href="hawaii/"><img src="images/hawaii-viewer.jpg" width="1200" height="713" loading="lazy" alt="The Hawaiian Field Sites viewer showing a 360 view of a rocky beach with a compass strip and a map of the sites"></a>
-      </div>
-      <div>
-        <h3>Hawaiian Field Sites</h3>
-        <p>A 360 field viewer built from ordinary phone photos on Maui and the Big Island in October 2026, with no 360 camera. Stand at any of 26 sites and look around.</p>
-        <p>Each site carries its location, compass direction, rock notes and sources. There is also a 3D map of both islands and a headset VR mode.</p>
-        <a class="btn" href="hawaii/">Open the viewer &rsaquo;</a>
-      </div>
-    </div>
-    <div class="items">
-      <div class="item"><h3>Capture and Stitch Guide</h3><p>Step-by-step guide to shooting and stitching your own walkthrough. Coming soon.</p></div>
-    </div>
-    <a class="back" href="#">↑ Back to top</a>
-  </section>
-
-  <section id="workbench" class="green">
-    <span class="tag">Ideas in progress</span>
-    <h2>On the Workbench</h2>
-    <p>Half-built ideas, experiments, and things that might work. Check back as they come off the bench.</p>
-    <div class="items">
-      <div class="item"><h3>Geo Rides</h3><p>A lean-to-steer geology ride. You stand on a converted Wii Balance Board and lean to steer through seven rides on a laptop. The game is built and tested, and the board conversion is on the bench now.</p></div>
-    </div>
-    <a class="back" href="#">↑ Back to top</a>
-  </section>
+  </div>
 </main>
 
 <footer>Build it. Test it. Share it. · Building Bouta<br><a href="https://www.linkedin.com/in/david-bouthot-026875391">Connect on LinkedIn</a></footer>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var views=[].slice.call(document.querySelectorAll('.view')), tabs=[].slice.call(document.querySelectorAll('.tablist a'));
+  function show(){
+    var v=(location.hash||'#home').slice(1);
+    if(!views.some(function(x){return x.dataset.view===v})) v='home';
+    views.forEach(function(x){x.classList.toggle('on',x.dataset.view===v)});
+    tabs.forEach(function(t){var on=t.dataset.tab===v;t.classList.toggle('on',on);if(on)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show); show();
+})();
+</script>
 </body>
 </html>
